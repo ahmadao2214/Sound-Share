@@ -13,6 +13,8 @@ import android.view.View;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.Matrix;
 
+import java.util.HashSet;
+
 /**
  * Created by OZ on 12/27/2015.
  */
