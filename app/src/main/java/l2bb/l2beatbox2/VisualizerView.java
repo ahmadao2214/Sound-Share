@@ -66,15 +66,15 @@ public class VisualizerView extends View {
         mVisualizer = new Visualizer(player.getAudioSessionId());
         mVisualizer.setCaptureSize(Visualizer.getCaptureSizeRange()[1]);
 
-        // Pass through Visualizer data totVisualizerView
-        Visualizer.OnDataCaptureListener captureListener = new Visualizer.OnDataCaptureListener(){
+        // Pass through Visualizer data to VisualizerView
+        Visualizer.OnDataCaptureListener captureListener = new Visualizer.OnDataCaptureListener() {
             @Override
-            public void onWaveFormDataCapture(VisualizerView visualizer, byte[] bytes, int samplingRate){
+            public void onWaveFormDataCapture(Visualizer visualizer, byte[] bytes, int samplingRate) {
                 updateVisualizer(bytes);
             }
 
             @Override
-            public void onFftDataCapture(VisualizerView visualizer, byte[] bytes, int samplingRate){
+            public void onFftDataCapture(Visualizer visualizer, byte[] bytes, int samplingRate) {
                 updateVisualizerFFT(bytes);
             }
         };
