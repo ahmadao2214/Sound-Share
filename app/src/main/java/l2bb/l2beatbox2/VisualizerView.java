@@ -14,6 +14,7 @@ import android.graphics.PorterDuff.Mode;
 import android.graphics.Matrix;
 
 import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by OZ on 12/27/2015.
@@ -43,7 +44,7 @@ public class VisualizerView extends View {
 
     public VisualizerView(Context context, AttributeSet attrs){ this(context, attrs, 0); }
 
-    public VisualizerView(Context context){ this(context, null, 0)}
+    public VisualizerView(Context context){ this(context, null, 0);}
 
     private void init(){
         mBytes = null;

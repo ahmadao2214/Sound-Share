@@ -1,6 +1,6 @@
 package l2bb.l2beatbox2;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.graphics.Paint;
 import android.media.MediaPlayer;
@@ -101,7 +101,7 @@ public class RecordSoundFragment extends Fragment {
         });
 
         mr = new MediaRecorder();
-        mr.setAudioSource(MediaRecorder.AudioSource.MTC);
+        mr.setAudioSource(MediaRecorder.AudioSource.MIC);
         mr.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         mr.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
 

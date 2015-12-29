@@ -19,8 +19,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 return SelectSoundFragment.newInstance(0);
             case 1:
                 return RecordSoundFragment.newInstance(1);
-            case 2:
-                return CompareSoundFragment.newInstance(2);
+            //case 2:
+               // return CompareSoundFragment.newInstance(2);
         }
         return null;
     }
@@ -35,8 +35,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 return "SECTION 1";
             case 1:
                 return "SECTION 2";
-            case 2:
-                return "SECTION 3";
+            //case 2:
+                //return "SECTION 3";
         }
         return null;
     }

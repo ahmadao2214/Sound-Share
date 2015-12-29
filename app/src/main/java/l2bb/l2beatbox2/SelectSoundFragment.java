@@ -1,6 +1,6 @@
 package l2bb.l2beatbox2;
 
-import android.app.ListFragment;
+import android.support.v4.app.ListFragment;
 import android.content.Context;
 import android.graphics.Paint;
 import android.media.MediaPlayer;
@@ -18,18 +18,30 @@ import android.widget.TextView;
 /**
  * Created by OZ on 12/24/2015.
  */
-public class SelectSoundFragment extends ListFragment{
 
+/**
+ * A placeholder fragment containing a simple view.
+ */
+public class SelectSoundFragment extends ListFragment {
+    /**
+     * The fragment argument representing the section number for this
+     * fragment.
+     */
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     VisualizerView mVisualizerView;
     MediaPlayer mp;
 
-    public SelectSoundFragment(){
+    public SelectSoundFragment()
+    {
 
     }
 
-    public static Fragment newInstance(int sectionNumber){
+    /**
+     * Returns a new instance of this fragment for the given section
+     * number.
+     */
+    public static Fragment newInstance(int sectionNumber) {
         SelectSoundFragment fragment = new SelectSoundFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
