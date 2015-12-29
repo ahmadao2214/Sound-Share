@@ -16,7 +16,7 @@ public class Beat {
 
     int soundId;
 
-    public Beat(String name, Type tye, String difficultyLevel, int soundId){
+    public Beat(String name, Type type, String difficultyLevel, int soundId){
         this.name = name;
         this.type = type;
         this.difficultyLevel = difficultyLevel;
