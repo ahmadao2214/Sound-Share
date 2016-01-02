@@ -8,18 +8,14 @@ public class Beat {
 
     String name;
     Type type;
-    String difficultyLevel;
 
     public int getSoundId() {return soundId;}
 
-    public void setSoundId(int soundId){ this.soundId = soundId; }
-
     int soundId;
 
-    public Beat(String name, Type type, String difficultyLevel, int soundId){
+    public Beat(String name, Type type, int soundId){
         this.name = name;
         this.type = type;
-        this.difficultyLevel = difficultyLevel;
         this.soundId = soundId;
     }
 
@@ -27,15 +23,7 @@ public class Beat {
 
     public void setName(String name){ this.name = name;}
 
-    public String getShortDescription() {return difficultyLevel;}
-
-    public void setDifficultyLevel (String shortDescription){
-        this.difficultyLevel = shortDescription;
-    }
-
     public Type getType() {return type;}
-
-    public void setType(Type type){ this.type = type;}
 
     public String toString(){ return name;}
 

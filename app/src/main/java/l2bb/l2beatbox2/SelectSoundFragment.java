@@ -102,77 +102,62 @@ public class SelectSoundFragment extends ListFragment {
         private static final Beat[] BEATs = {
                 new Beat("Classic Kick",
                         Beat.Type.Kick,
-                        "Easy",
                         R.raw.kick),
 
                 new Beat("808 Kick",
                         Beat.Type.Kick,
-                        "Easy",
                         R.raw.eightoeightkick),
 
                 new Beat("Fast Rolls Kick",
                         Beat.Type.Kick,
-                        "Hard",
                         R.raw.fastrollskick),
 
                 new Beat("Dry Kick",
                         Beat.Type.Kick,
-                        "Medium",
                         R.raw.drykick),
 
                 new Beat("Fast HiHat",
                         Beat.Type.HiHat,
-                        "Hard",
                         R.raw.fasthihat),
 
                 new Beat("Open and Closed HiHat",
                         Beat.Type.HiHat,
-                        "Easy",
                         R.raw.openclosedhihat),
 
                 new Beat("Classic Snare",
                         Beat.Type.Snare,
-                        "Medium",
                         R.raw.classicsnare),
 
                 new Beat("Rimshot Snare",
                         Beat.Type.Snare,
-                        "Medium",
                         R.raw.rimshotsnare),
 
                 new Beat("Inward Snare",
                         Beat.Type.Snare,
-                        "Hard",
                         R.raw.inwardsnare),
 
                 new Beat("808 Snare",
                         Beat.Type.Snare,
-                        "Easy",
                         R.raw.eightoeightsnare),
 
                 new Beat("Abra Scratch",
                         Beat.Type.Scratch,
-                        "Medium",
                         R.raw.abrascratch),
 
                 new Beat("Electro Scratch",
                         Beat.Type.Scratch,
-                        "Easy",
                         R.raw.electroscratch),
 
                 new Beat("Whistle Scratch",
                         Beat.Type.Scratch,
-                        "Medium",
                         R.raw.whistlescratch),
 
                 new Beat("Throat Scratch",
                         Beat.Type.Scratch,
-                        "Hard",
                         R.raw.throatscratch),
 
                 new Beat("Vocal Scratch",
                         Beat.Type.Scratch,
-                        "Medium",
                         R.raw.vocalscratch),
 
         };
@@ -207,11 +192,9 @@ public class SelectSoundFragment extends ListFragment {
 
                 ImageView icon = (ImageView) row.findViewById(R.id.image);
                 TextView name = (TextView) row.findViewById(R.id.text1);
-                TextView description = (TextView) row.findViewById(R.id.text2);
 
                 Beat beat = BEATs[position];
                 name.setText(beat.getName());
-                description.setText(beat.getShortDescription());
                 icon.setImageResource(Beat.getIconResource(beat.getType()));
 
                 return row;
