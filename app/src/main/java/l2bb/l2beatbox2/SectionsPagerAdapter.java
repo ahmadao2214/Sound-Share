@@ -27,7 +27,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     }
 
     @Override
-    public int getCount() { return 3; }
+    public int getCount() { return 2; }
 
     @Override
     public CharSequence getPageTitle(int position){
