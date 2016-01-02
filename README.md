@@ -1,15 +1,11 @@
 # L2BEATBOX
 Android app providing beatbox samples to teach basic techniques.
 
-L2BEATBOX
-L2Beatbox is an android application providing various beat-boxing sounds for the user to listen to and then have their own chance to make their own attempt of a beat-boxing sound. 
 
-Users can see the sound frequency from either selecting a sound from a scrollable list or of their own recording.
-User can select different functionality (screens)  of the app simply by scrolling right.
+L2Beatbox: an android application providing various beat-boxing sounds for the user to listen  and have their own chance to make an attempt of practicing the beat-boxing technique. 
 
-Unfinished: Sound comparison. Third screen provides an attempt at comparing 2 sounds providing a score and their similarity. The library does not provide enough documentation and results from testing were not consistent. 
+Sound frequency is displayed from selecting a sample from a scrollable list or from their own recording.
 
-     
 APIS:
 Android Visualizer by FelixPalmer
 https://github.com/felixpalmer/android-visualizer
@@ -26,9 +22,6 @@ Provides container for audio byte [].
 
 •	Beat:
 Object representing list to hold Icon, description and sound file.
-
-•	CompareSoundFragment:
-Incomplete sound comparison fragment providing score and similarity values between selected and user recorded sound. Testing did not provide consistent results to complete.
 
 •	FFTData:
 Provides container for FFT byte [].
@@ -56,17 +49,14 @@ Element to be displayed within XML to visualize FFT data.
 
 CHALLENGES:
 •	Figuring out to stop the media player after starting and playing it. This enables the user to hit multiple sounds without having the app crash by stop and resetting the media player every time a sound is touched.
-•	Finding a visualizer library that worked well and was easy to use. Many of them had bad documentation and examples.
-•	Finding a acoustic fingerprinting library (still a work in progress)
-•	Implementing the list view alongside the visualizer on the select sound screen. 
+•	Finding a visualizer library. Many of them had bad documentation and examples.
+•	Finding a acoustic fingerprinting library (still a work in progress).
+•	Implementing the list view with visualizer on SelectSoundFragment. 
 •	Incompatibility between fragments/activities
 
 LIMITATIONS:
 •	Unable to compare sounds
 •	Improvement: Record your own beatbox sound and add to list
 •	Improvement: Create a backend to host audio files
-•	Improvement: Create social aspect to send audio files to others for collaboration (Collaboration method????)
-•	Improvement: Add video functionality for Beatchat (Beat-boxing snap chat?!)
-
-OVERALL EXPERIENCE:
-Fun but difficult. Being able to develop in android requires patience and time. I am happy to have had an opportunity to create an application that was unique and relevant to me particular interest but I have a lot to learn still. It was great taking the class and understanding little things that added to my overall comprehension behind Android, Android development and Android Architecture. I hope to eventually release and Android Application to the Google Play Store in order to establish myself as a true android developer and hopefully find employment opportunities through that experience. Android has always been difficult but in the face of adversity, it reminds you to have perseverance to make accomplishments of various sizes.
+•	Improvement: Create social aspect to send audio files to others for collaboration 
+•	Improvement: Add video functionality for Beatchat
