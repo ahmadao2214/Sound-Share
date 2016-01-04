@@ -96,7 +96,6 @@ public class SelectSoundFragment extends ListFragment {
 
         mVisualizerView.link(mp);
         mp.start();
-
     }
 
         private static final Beat[] BEATs = {
