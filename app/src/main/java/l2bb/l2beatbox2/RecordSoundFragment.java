@@ -43,8 +43,7 @@ public class RecordSoundFragment extends Fragment {
     }
 
     /**
-     * Returns a new instance of this fragment for the given section
-     * number.
+     * Returns a new instance of fragment for the given section number.
      */
     public static RecordSoundFragment newInstance(int sectionNumber){
         RecordSoundFragment fragment = new RecordSoundFragment();

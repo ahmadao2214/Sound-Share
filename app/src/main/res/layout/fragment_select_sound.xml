@@ -14,7 +14,6 @@
         android:layout_width="fill_parent"
         android:layout_height="250dp"
         android:id="@android:id/list">
-
     </ListView>
 
     <l2bb.l2beatbox2.VisualizerView

@@ -18,9 +18,9 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         switch(position){
             case 0:
-                return SelectSoundFragment.newInstance(0);
+                return RecordSoundFragment.newInstance(0);
             case 1:
-                return RecordSoundFragment.newInstance(1);
+                return SelectSoundFragment.newInstance(1);
         }
 
         return null;
