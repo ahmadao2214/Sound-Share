@@ -23,6 +23,9 @@ import android.widget.TextView;
  * A placeholder fragment containing a simple view.
  */
 public class SelectSoundFragment extends ListFragment {
+
+    BeatDatabase myDb;
+
     /**
      * The fragment argument representing the section number for this
      * fragment.
@@ -65,6 +68,8 @@ public class SelectSoundFragment extends ListFragment {
         View rootView = inflater.inflate(R.layout.fragment_select_sound, container, false);
 
         setListAdapter(new BeatAdapter());
+
+        //myDb = new BeatDatabase(this);
 
         mp = new MediaPlayer();
 
