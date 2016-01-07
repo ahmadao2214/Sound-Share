@@ -69,8 +69,6 @@ public class SelectSoundFragment extends ListFragment {
 
         setListAdapter(new BeatAdapter());
 
-        //myDb = new BeatDatabase(this);
-
         mp = new MediaPlayer();
 
         mVisualizerView = (VisualizerView) rootView.findViewById(R.id.visualizerView);
