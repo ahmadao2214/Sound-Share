@@ -1,5 +1,6 @@
 package l2bb.l2beatbox2;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.graphics.Paint;
@@ -27,6 +28,7 @@ public class RecordSoundFragment extends Fragment {
      * fragment.
      */
     private static final String ARG_SECTION_NUMBER = "section_number";
+    private static final String RECORD_SOUND_ID = "sound_id";
 
     VisualizerView mVisualizerView;
 
@@ -73,6 +75,7 @@ public class RecordSoundFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
         View rootView = inflater.inflate(R.layout.fragment_record_sound, container, false);
+
 
         start = (Button) rootView.findViewById(R.id.button);
         stop = (Button) rootView.findViewById(R.id.button2);

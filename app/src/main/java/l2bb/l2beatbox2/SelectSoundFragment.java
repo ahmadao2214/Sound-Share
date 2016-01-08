@@ -14,6 +14,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by OZ on 12/24/2015.
@@ -23,8 +24,6 @@ import android.widget.TextView;
  * A placeholder fragment containing a simple view.
  */
 public class SelectSoundFragment extends ListFragment {
-
-    BeatDatabase myDb;
 
     /**
      * The fragment argument representing the section number for this
@@ -101,70 +100,7 @@ public class SelectSoundFragment extends ListFragment {
         mp.start();
     }
 
-        private static final Beat[] BEATs = {
-                new Beat("Classic Kick",
-                        Beat.Type.Kick,
-                        R.raw.kick),
-
-                new Beat("808 Kick",
-                        Beat.Type.Kick,
-                        R.raw.eightoeightkick),
-
-                new Beat("Fast Rolls Kick",
-                        Beat.Type.Kick,
-                        R.raw.fastrollskick),
-
-                new Beat("Dry Kick",
-                        Beat.Type.Kick,
-                        R.raw.drykick),
-
-                new Beat("Fast HiHat",
-                        Beat.Type.HiHat,
-                        R.raw.fasthihat),
-
-                new Beat("Open and Closed HiHat",
-                        Beat.Type.HiHat,
-                        R.raw.openclosedhihat),
-
-                new Beat("Classic Snare",
-                        Beat.Type.Snare,
-                        R.raw.classicsnare),
-
-                new Beat("Rimshot Snare",
-                        Beat.Type.Snare,
-                        R.raw.rimshotsnare),
-
-                new Beat("Inward Snare",
-                        Beat.Type.Snare,
-                        R.raw.inwardsnare),
-
-                new Beat("808 Snare",
-                        Beat.Type.Snare,
-                        R.raw.eightoeightsnare),
-
-                new Beat("Abra Scratch",
-                        Beat.Type.Scratch,
-                        R.raw.abrascratch),
-
-                new Beat("Electro Scratch",
-                        Beat.Type.Scratch,
-                        R.raw.electroscratch),
-
-                new Beat("Whistle Scratch",
-                        Beat.Type.Scratch,
-                        R.raw.whistlescratch),
-
-                new Beat("Throat Scratch",
-                        Beat.Type.Scratch,
-                        R.raw.throatscratch),
-
-                new Beat("Vocal Scratch",
-                        Beat.Type.Scratch,
-                        R.raw.vocalscratch),
-
-        };
-
-        class BeatAdapter extends BaseAdapter {
+    class BeatAdapter extends BaseAdapter {
             private LayoutInflater inflater;
 
             @Override
@@ -202,4 +138,11 @@ public class SelectSoundFragment extends ListFragment {
                 return row;
             }
         }
-    }
+
+    private static final Beat[] BEATs = {
+            new Beat("Recording ",
+                    Beat.Type.Kick,
+                    R.raw.kick
+                    )
+    };
+}
