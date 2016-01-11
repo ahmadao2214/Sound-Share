@@ -6,15 +6,13 @@ Sound frequency displays from selecting a sample from a scrollable list or from 
 
 APIS:
 
-Android Visualizer by FelixPalmer
-
+Android Visualizer by FelixPalmer:
 https://github.com/felixpalmer/android-visualizer
 
 Provides visualization effect that draws an  on a canvas the sound frequency audio visualization on a graph.
 
 
-Audio Analysis Library
-
+Audio Analysis Library:
 https://code.google.com/p/musicg/
 
 musicg-1.4.2.0
