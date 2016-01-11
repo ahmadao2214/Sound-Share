@@ -2,19 +2,25 @@
 
 Android application providing various beat-boxing sampels for user to listen  and record their own attempt of practicing the beat-boxing technique. 
 
-Sound frequency is displayed from selecting a sample from a scrollable list or from viewing recording via "Play" button.
+Sound frequency displays from selecting a sample from a scrollable list or from viewing recording via "Play" button.
 
 APIS:
 
 Android Visualizer by FelixPalmer
+
 https://github.com/felixpalmer/android-visualizer
+
 Provides visualization effect that draws an  on a canvas the sound frequency audio visualization on a graph.
+
 
 Audio Analysis Library
 
 https://code.google.com/p/musicg/
+
 musicg-1.4.2.0
+
 Provides acoustic finger printing library for implementation and analysis.
+
 
 CLASSES:
 
