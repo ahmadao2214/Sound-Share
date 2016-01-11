@@ -15,6 +15,7 @@ musicg-1.4.2.0
 Provides acoustic finger printing library for implementation and analysis.
 
 CLASSES:
+
 •	AudioData:
 
 Provides container for audio byte [].
