@@ -67,15 +67,15 @@ CHALLENGES:
 
 •	Figuring out to stop the media player after starting and playing it. This enables the user to hit multiple sounds without having the app crash by stop and resetting the media player every time a sound is touched.
 
-•	Finding a visualizer library. Many of them had bad documentation and examples.
+•	Finding a visualizer library. Many had bad documentation and examples.
 
 •	Finding a acoustic fingerprinting library (still a work in progress).
 
-•	Implementing the list view with visualizer on SelectSoundFragment. 
+•	Inflating list view working with visualizer in SelectSoundFragment. 
 
-•	Incompatibility between fragments/activities
+•	Incompatibility between fragments/activities.
 
-•	Changing RecordSoundFragment to add to list within SelectSoundFragment
+•	Changing RecordSoundFragment to add to list within SelectSoundFragment.
 
 
 Improvements:
