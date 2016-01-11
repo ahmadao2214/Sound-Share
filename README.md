@@ -5,11 +5,13 @@ Android application providing various beat-boxing sampels for user to listen  an
 Sound frequency is displayed from selecting a sample from a scrollable list or from viewing recording via "Play" button.
 
 APIS:
+
 Android Visualizer by FelixPalmer
 https://github.com/felixpalmer/android-visualizer
 Provides visualization effect that draws an  on a canvas the sound frequency audio visualization on a graph.
 
 Audio Analysis Library
+
 https://code.google.com/p/musicg/
 musicg-1.4.2.0
 Provides acoustic finger printing library for implementation and analysis.
@@ -56,6 +58,7 @@ Provides sounds to select from within a list adapter and playing the sound while
 
 Element to be displayed within XML to visualize FFT data.
 
+
 CHALLENGES:
 
 •	Figuring out to stop the media player after starting and playing it. This enables the user to hit multiple sounds without having the app crash by stop and resetting the media player every time a sound is touched.
@@ -70,12 +73,13 @@ CHALLENGES:
 
 •	Changing RecordSoundFragment to add to list within SelectSoundFragment
 
-LIMITATIONS:
 
-•	Improvement: Record your own beatbox sound and add to list
+Improvements:
 
-•	Improvement: Create a backend to host audio files
+•	Record your own beatbox sound and add to list
 
-•	Improvement: Social Media integration for login and distribution
+•	Create a backend to host audio files
 
-•	Improvement: Add collarboration feature
+•	Social Media integration for login and distribution
+
+•	Add collarboration feature
