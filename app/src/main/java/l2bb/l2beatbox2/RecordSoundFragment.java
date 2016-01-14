@@ -1,6 +1,7 @@
 package l2bb.l2beatbox2;
 
-import android.content.Intent;
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.graphics.Paint;
@@ -38,7 +39,11 @@ public class RecordSoundFragment extends Fragment {
 
     MediaRecorder mr;
     MediaPlayer mp;
-    String file;
+
+    String fileName;
+    String path;
+
+    private BeatDatabase bd;
 
     public RecordSoundFragment(){
 
@@ -48,15 +53,20 @@ public class RecordSoundFragment extends Fragment {
      * Returns a new instance of fragment for the given section number.
      */
     public static RecordSoundFragment newInstance(int sectionNumber){
+
         RecordSoundFragment fragment = new RecordSoundFragment();
+
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
+
         return fragment;
     }
 
     private File getNextFileName(Context c){
-        File file = new File(c.getFilesDir(), "Audio_" + System.currentTimeMillis() + ".3gp");
+        fileName = "Audio_" + System.currentTimeMillis() + ".3gp";
+
+        File file = new File(c.getFilesDir(), fileName);
         return file;
     }
 
@@ -76,6 +86,7 @@ public class RecordSoundFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_record_sound, container, false);
 
+        bd = new BeatDatabase(getActivity().getApplicationContext());
 
         start = (Button) rootView.findViewById(R.id.button);
         stop = (Button) rootView.findViewById(R.id.button2);
@@ -107,8 +118,8 @@ public class RecordSoundFragment extends Fragment {
         mr.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         mr.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
 
-        file = (getNextFileName(rootView.getContext()).toString());
-        mr.setOutputFile(file);
+        path = (getNextFileName(rootView.getContext()).toString());
+        mr.setOutputFile(path);
 
         try {
             mr.prepare();
@@ -141,11 +152,14 @@ public class RecordSoundFragment extends Fragment {
 
         stop.setEnabled(false);
         play.setEnabled(true);
+
+        SQLiteDatabase sqlDB = bd.getWritableDatabase();
+        bd.insertData(fileName, path);
     }
 
     private void playRecording(View v){
         try {
-            mp.setDataSource(file);
+            mp.setDataSource(path);
             mp.prepare();
         } catch(IOException e){
             e.printStackTrace();
