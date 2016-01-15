@@ -16,6 +16,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+
 /**
  * Created by OZ on 12/24/2015.
  */
@@ -33,6 +35,7 @@ public class SelectSoundFragment extends ListFragment {
 
     VisualizerView mVisualizerView;
     MediaPlayer mp;
+    BeatDatabase bd = BeatDatabase.getInstance(null);
 
     public SelectSoundFragment()
     {
@@ -80,11 +83,10 @@ public class SelectSoundFragment extends ListFragment {
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id){
-        playRecording(v, BEATs[position].getSoundId());
+        playRecording(v, bd.getBeat(position).getPath());
     }
 
-    private void playRecording(View v, int SoundId) {
-
+    private void playRecording(View v, String path) {
         mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
@@ -94,7 +96,12 @@ public class SelectSoundFragment extends ListFragment {
             }
         });
 
-        mp = MediaPlayer.create(v.getContext(), SoundId);
+        try {
+            mp.setDataSource(path);
+            mp.prepare();
+        } catch(IOException e){
+            e.printStackTrace();
+        }
 
         mVisualizerView.link(mp);
         mp.start();
@@ -103,14 +110,16 @@ public class SelectSoundFragment extends ListFragment {
     class BeatAdapter extends BaseAdapter {
             private LayoutInflater inflater;
 
+            BeatDatabase bd = BeatDatabase.getInstance(null);
+
             @Override
             public int getCount() {
-                return BEATs.length;
+                return bd.getCount();
             }
 
             @Override
             public Object getItem(int i) {
-                return BEATs[i];
+                return bd.getBeat(i);
             }
 
             @Override
@@ -128,21 +137,15 @@ public class SelectSoundFragment extends ListFragment {
                     row = inflater.inflate(R.layout.beat_list, parent, false);
                 }
 
-                ImageView icon = (ImageView) row.findViewById(R.id.image);
-                TextView name = (TextView) row.findViewById(R.id.text1);
+                if (bd.getCount() > 0) {
 
-                Beat beat = BEATs[position];
-                name.setText(beat.getName());
-                icon.setImageResource(Beat.getIconResource(beat.getType()));
+                    TextView name = (TextView) row.findViewById(R.id.text1);
+
+                    Beat beat = bd.getBeat(position + 1);
+                    name.setText(beat.getName());
+                }
 
                 return row;
             }
         }
-
-    private static final Beat[] BEATs = {
-            new Beat("Recording ",
-                    Beat.Type.Kick,
-                    R.raw.kick
-                    )
-    };
 }

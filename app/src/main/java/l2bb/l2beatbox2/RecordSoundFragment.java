@@ -43,8 +43,6 @@ public class RecordSoundFragment extends Fragment {
     String fileName;
     String path;
 
-    private BeatDatabase bd;
-
     public RecordSoundFragment(){
 
     }
@@ -85,8 +83,6 @@ public class RecordSoundFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
         View rootView = inflater.inflate(R.layout.fragment_record_sound, container, false);
-
-        bd = new BeatDatabase(getActivity().getApplicationContext());
 
         start = (Button) rootView.findViewById(R.id.button);
         stop = (Button) rootView.findViewById(R.id.button2);
@@ -153,6 +149,7 @@ public class RecordSoundFragment extends Fragment {
         stop.setEnabled(false);
         play.setEnabled(true);
 
+        BeatDatabase bd = BeatDatabase.getInstance(null);
         SQLiteDatabase sqlDB = bd.getWritableDatabase();
         bd.insertData(fileName, path);
     }
