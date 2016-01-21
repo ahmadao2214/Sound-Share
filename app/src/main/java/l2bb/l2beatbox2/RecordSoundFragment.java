@@ -133,7 +133,7 @@ public class RecordSoundFragment extends Fragment {
         return rootView;
     }
 
-    public void startRecording(View v){
+    public void startRecording(View v) {
         mr.start();
 
         start.setEnabled(false);

@@ -87,15 +87,6 @@ public class SelectSoundFragment extends ListFragment {
     }
 
     private void playRecording(View v, String path) {
-        mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                mp.stop();
-                mp.reset();
-                mVisualizerView.setEnabled(false);
-            }
-        });
-
         try {
             mp.setDataSource(path);
             mp.prepare();
@@ -103,8 +94,17 @@ public class SelectSoundFragment extends ListFragment {
             e.printStackTrace();
         }
 
-        mVisualizerView.link(mp);
         mp.start();
+
+        mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener(){
+            @Override
+            public void onCompletion(MediaPlayer mp){
+                mp.stop();
+                mp.reset();
+
+                mVisualizerView.setEnabled(false);
+            }
+        });
     }
 
     class BeatAdapter extends BaseAdapter {
