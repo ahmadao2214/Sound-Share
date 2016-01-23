@@ -101,42 +101,4 @@ public class BeatDatabase extends SQLiteOpenHelper {
 
         return new Beat(c.getString(1), c.getString(2));
     }
-
-    public Beat[] getBeats() {
-        // Define a projection that specifies which columns from the database
-        // you will actually use after this query.
-        String[] projection = {
-                BeatDatabase.COL_1,
-                BeatDatabase.COL_2,
-                BeatDatabase.COL_3
-        };
-
-        // How you want the results sorted in the resulting Cursor
-        String sortOrder = BeatDatabase.COL_1 + " ASC";
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = db.query(
-                BeatDatabase.TABLE_NAME,                  // The table to query
-                projection,                               // The columns to return
-                null,                                // The columns for the WHERE clause
-                null,                            // The values for the WHERE clause
-                null,                                     // don't group the rows
-                null,                                     // don't filter by row groups
-                sortOrder                                 // The sort order
-        );
-
-        c.moveToFirst();
-
-        List<Beat> beatList = new ArrayList<Beat>();
-
-        // Add all of the DB items to an ArrayList of beats
-        do {
-
-            beatList.add(new Beat(c.getString(2), c.getString(3)));
-            //2 = NAME
-            //3 = PATH
-
-        } while (c.moveToNext() != false);
-
-        return (Beat[])beatList.toArray();
-    }
 }

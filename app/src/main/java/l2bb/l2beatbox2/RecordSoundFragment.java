@@ -29,7 +29,6 @@ public class RecordSoundFragment extends Fragment {
      * fragment.
      */
     private static final String ARG_SECTION_NUMBER = "section_number";
-    private static final String RECORD_SOUND_ID = "sound_id";
 
     VisualizerView mVisualizerView;
 
@@ -150,7 +149,6 @@ public class RecordSoundFragment extends Fragment {
         play.setEnabled(true);
 
         BeatDatabase bd = BeatDatabase.getInstance(null);
-        SQLiteDatabase sqlDB = bd.getWritableDatabase();
         bd.insertData(fileName, path);
     }
 

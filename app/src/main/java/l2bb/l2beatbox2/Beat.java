@@ -20,10 +20,6 @@ public class Beat {
         return path;
     }
 
-    public void setPath(String path) {
-        this.path = path;
-    }
-
     public Beat(String name, String path){
         this.name = name;
         this.path = path;
