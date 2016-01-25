@@ -1,23 +1,16 @@
 # L2BEATBOX
 
-Android application providing various beat-boxing samples for user to listen  and record their own attempt of practicing the beat-boxing technique. 
-
 Sound frequency displays from selecting a sample or from "Play" button.
 
 ###APIS:
-
 Android Visualizer by FelixPalmer:
-https://github.com/felixpalmer/android-visualizer
-
-Provides visualization effect drawing sound frequency.
+> https://github.com/felixpalmer/android-visualizer
+Visualization effect drawing sound frequency.
 
 
 Audio Analysis Library:
-https://code.google.com/p/musicg/
-
-musicg-1.4.2.0
-
-Provides acoustic finger printing library for implementation and analysis.
+> https://code.google.com/p/musicg/
+Acoustic finger printing library for implementation and analysis.
 
 
 ###CLASSES:
