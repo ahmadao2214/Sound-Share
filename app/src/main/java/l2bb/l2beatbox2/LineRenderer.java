@@ -45,12 +45,10 @@ public class LineRenderer extends Renderer {
 
         // Calculate points for line
         for(int i = 0; i < data.bytes.length - 1; i++){
-            mPoints[i * 4] = rect.width() * i / (data.bytes.length -1);
-            mPoints[i * 4 + 1] = rect.height() / 2
-                    + ((byte) (data.bytes[i] + 128)) * (rect.height() /3) / 128;
+            mPoints[i * 4] = rect.width() * i / (data.bytes.length - 1);
+            mPoints[i * 4 + 1] = rect.height() / 2 + ((byte) (data.bytes[i] + 128)) * (rect.height() /3) / 128;
             mPoints[i * 4 + 2] = rect.width() * (i + 1) / (data.bytes.length - 1);
-            mPoints[i * 4 + 3] = rect.height() / 2
-                    + ((byte) (data.bytes[i+1] + 128)) * (rect.height() / 3 ) /128;
+            mPoints[i * 4 + 3] = rect.height() / 2 + ((byte) (data.bytes[i+1] + 128)) * (rect.height() / 3 ) /128;
         }
 
         // Calc amplitude for this waveform

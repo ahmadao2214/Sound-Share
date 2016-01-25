@@ -6,9 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by OZ on 1/2/2016.
  */
@@ -29,10 +26,8 @@ public class BeatDatabase extends SQLiteOpenHelper {
 
     public static BeatDatabase getInstance(Context context)
     {
-        if (instance == null) {
+        if (instance == null)
             instance = new BeatDatabase(context);
-        }
-
         return instance;
     }
 
@@ -56,7 +51,7 @@ public class BeatDatabase extends SQLiteOpenHelper {
 
         long result = db.insert(TABLE_NAME, null, contentValues);
 
-        return (result != -1);
+        return (result != -1);//
     }
 
     public int getCount()
@@ -90,8 +85,8 @@ public class BeatDatabase extends SQLiteOpenHelper {
         Cursor c = db.query(
                 BeatDatabase.TABLE_NAME,                  // The table to query
                 projection,                               // The columns to return
-                whereClause,                                // The columns for the WHERE clause
-                whereArgs,                                    // The values for the WHERE clause
+                whereClause,                              // The columns for the WHERE clause
+                whereArgs,                                // The values for the WHERE clause
                 null,                                     // don't group the rows
                 null,                                     // don't filter by row groups
                 sortOrder                                 // The sort order

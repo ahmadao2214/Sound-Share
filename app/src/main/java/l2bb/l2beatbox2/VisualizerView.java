@@ -102,7 +102,7 @@ public class VisualizerView extends View {
     public void release(){mVisualizer.release();}
 
     /**
-     * Pass data to the visualizer. Typically this will be obtained from the
+     * Pass data to visualizer. Typically this will be obtained from the
      * Android Visualizer.OnDataCaptureListener call back. See
      * {@link Visualizer.OnDataCaptureListener#onWaveFormDataCapture }
      *
