@@ -1,6 +1,6 @@
 # L2BEATBOX
 
-Sound frequency displays from selecting a sample or from "Play" button.
+(Android) Sampling beat-box techniques and displaying sound frequency from selecting sample or from "Play" button.
 
 ###APIS:
 Android Visualizer by FelixPalmer:
