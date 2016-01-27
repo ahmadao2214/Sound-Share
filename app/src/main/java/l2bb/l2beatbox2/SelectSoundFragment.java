@@ -4,17 +4,14 @@ import android.support.v4.app.ListFragment;
 import android.content.Context;
 import android.graphics.Paint;
 import android.media.MediaPlayer;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.IOException;
 
@@ -109,7 +106,6 @@ public class SelectSoundFragment extends ListFragment {
 
     class BeatAdapter extends BaseAdapter {
             private LayoutInflater inflater;
-
             BeatDatabase bd = BeatDatabase.getInstance(null);
 
             @Override
@@ -130,7 +126,6 @@ public class SelectSoundFragment extends ListFragment {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 View row = convertView;
-
                 if (convertView == null) {
                     if (inflater == null)
                         inflater = (LayoutInflater) SelectSoundFragment.this.getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -138,13 +133,10 @@ public class SelectSoundFragment extends ListFragment {
                 }
 
                 if (bd.getCount() > 0) {
-
                     TextView name = (TextView) row.findViewById(R.id.text1);
-
                     Beat beat = bd.getBeat(position + 1);
                     name.setText(beat.getName());
                 }
-
                 return row;
             }
         }
