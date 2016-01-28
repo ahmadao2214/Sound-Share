@@ -6,12 +6,16 @@ import android.graphics.Paint;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -19,12 +23,12 @@ import java.io.IOException;
  */
 
 public class SelectSoundFragment extends ListFragment {
-
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     VisualizerView mVisualizerView;
     MediaPlayer mp;
     BeatDatabase bd = BeatDatabase.getInstance(null);
+    SwipeRefreshLayout mySwipeRefreshLayout;
 
     public SelectSoundFragment()
     {
@@ -43,13 +47,25 @@ public class SelectSoundFragment extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View rootView = inflater.inflate(R.layout.fragment_select_sound, container, false);
         setListAdapter(new BeatAdapter());
-
+        mySwipeRefreshLayout = (SwipeRefreshLayout)rootView.findViewById(R.id.swiperefresh);
         mp = new MediaPlayer();
         mVisualizerView = (VisualizerView) rootView.findViewById(R.id.visualizerView);
         addLineRenderer();
         mVisualizerView.link(mp);
 
+        mySwipeRefreshLayout.setOnRefreshListener(
+                new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                        myUpdateOperation();
+                    }
+                }
+        );
         return rootView;
+    }
+
+    private void myUpdateOperation(){
+
     }
 
     class BeatAdapter extends BaseAdapter {
@@ -93,6 +109,7 @@ public class SelectSoundFragment extends ListFragment {
         LineRenderer lineRenderer = new LineRenderer(setupPaint());
         mVisualizerView.addRenderer(lineRenderer);
     }
+
     private Paint setupPaint(){
         Paint linePaint =  new Paint();
         linePaint.setStrokeWidth(7f);
@@ -110,10 +127,10 @@ public class SelectSoundFragment extends ListFragment {
         try {
             mp.setDataSource(path);
             mp.prepare();
+            mp.start();
         } catch(IOException e){
             e.printStackTrace();
         }
-        mp.start();
         mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener(){
             @Override
             public void onCompletion(MediaPlayer mp){
@@ -123,6 +140,4 @@ public class SelectSoundFragment extends ListFragment {
             }
         });
     }
-
-
 }

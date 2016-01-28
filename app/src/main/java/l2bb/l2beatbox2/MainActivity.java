@@ -1,24 +1,18 @@
 package l2bb.l2beatbox2;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
     private BeatDatabase bd;
-
     private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
-
         bd  = BeatDatabase.getInstance(getApplicationContext());
 
         // Create adapter that will return a fragment for each primary section of activity.

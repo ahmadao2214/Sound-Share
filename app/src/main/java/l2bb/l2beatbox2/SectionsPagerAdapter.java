@@ -15,14 +15,12 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position){
-
         switch(position){
             case 0:
                 return RecordSoundFragment.newInstance(0);
             case 1:
                 return SelectSoundFragment.newInstance(1);
         }
-
         return null;
     }
 
@@ -37,7 +35,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
             case 1:
                 return "SECTION 2";
         }
-
         return null;
     }
 }
