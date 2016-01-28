@@ -93,7 +93,6 @@ public class BeatDatabase extends SQLiteOpenHelper {
         );
 
         c.moveToFirst();
-
         return new Beat(c.getString(1), c.getString(2));
     }
 }

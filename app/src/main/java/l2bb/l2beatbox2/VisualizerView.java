@@ -138,7 +138,7 @@ public class VisualizerView extends View {
     protected void onDraw(Canvas canvas){
         super.onDraw(canvas);
 
-        // Create canvas once we're ready to draw
+        // Create canvas when ready to draw
         mRect.set(0, 0, getWidth(), getHeight());
 
         if(mCanvasBitmap == null){
@@ -157,7 +157,6 @@ public class VisualizerView extends View {
                 r.render(mCanvas, audioData, mRect);
             }
         }
-
         if(mFFTBytes != null){
             // Render all FFT renderers
             FFTData fftData = new FFTData(mFFTBytes);
@@ -165,12 +164,10 @@ public class VisualizerView extends View {
                 r.render(mCanvas, fftData, mRect);
             }
         }
-
         if(mFlash){
             mFlash = false;
             mCanvas.drawPaint(mFlashPaint);
         }
-
         canvas.drawBitmap(mCanvasBitmap, new Matrix(), null);
     }
 

@@ -7,11 +7,11 @@ import android.graphics.Rect;
  * Created by OZ on 12/28/2015.
  */
 abstract public class Renderer {
-    // Have these as members, so we don't have to re-create them each time
     protected  float[] mPoints;
     protected  float[] mFFTPoints;
 
     public Renderer(){
+
     }
 
     // As the display of raw/FFT audio will usually look different, subclasses
@@ -48,7 +48,6 @@ abstract public class Renderer {
         if(mPoints == null || mPoints.length < data.bytes.length * 4){
             mPoints = new float[data.bytes.length * 4];
         }
-
         onRender(canvas, data, rect);
     }
 
@@ -63,7 +62,6 @@ abstract public class Renderer {
         if(mFFTPoints == null || mFFTPoints.length < data.bytes.length * 4){
             mFFTPoints = new float[data.bytes.length * 4];
         }
-
         onRender(canvas, data, rect);
     }
 }
