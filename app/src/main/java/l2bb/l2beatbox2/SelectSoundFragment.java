@@ -1,21 +1,15 @@
 package l2bb.l2beatbox2;
 
 import android.support.v4.app.ListFragment;
-import android.content.Context;
 import android.graphics.Paint;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
-
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -74,8 +68,6 @@ public class SelectSoundFragment extends ListFragment {
         SelectSoundFragment f = (SelectSoundFragment)getActivity().getSupportFragmentManager().findFragmentById(R.layout.fragment_select_sound);
         f.beatAdapter.notifyDataSetChanged();
     }
-
-
 
     private void addLineRenderer(){
         LineRenderer lineRenderer = new LineRenderer(setupPaint());
