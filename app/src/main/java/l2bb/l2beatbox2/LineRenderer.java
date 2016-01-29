@@ -10,39 +10,15 @@ import android.graphics.Rect;
  */
 public class LineRenderer extends Renderer {
     private Paint mPaint;
-    private boolean mCycleColor;
     private float amplitude = 0;
-    private float colorCounter = 0;
 
-    /**
-     * Redners the audio data onto a line. The line flashes on prominent beats
-     *
-     * @param paint - Paint to draw lines with
-     * @param paint - Paint to draw flash with
-     */
-    public LineRenderer(Paint paint) {
-        this(paint, false);
-    }
-
-    /**
-     * Renders the audio data onto a line. The line flashes on prominent beats
-     *
-     * @param paint      - Paint to draw lines with
-     * @param paint      - Paint to draw flash with
-     * @param cycleColor - If true the color will change on each frame
-     */
-    public LineRenderer(Paint paint, boolean cycleColor){
+    public LineRenderer(Paint paint){
         super();
         mPaint = paint;
-        mCycleColor = cycleColor;
     }
 
     @Override
     public void onRender(Canvas canvas, AudioData data, Rect rect){
-        if(mCycleColor){
-            cycleColor();
-        }
-
         // Calculate points for line
         for(int i = 0; i < data.bytes.length - 1; i++){
             mPoints[i * 4] = rect.width() * i / (data.bytes.length - 1);
@@ -61,18 +37,5 @@ public class LineRenderer extends Renderer {
         amplitude = amp;
 
         canvas.drawLines(mPoints, mPaint);
-    }
-
-    @Override
-    public void onRender(Canvas canvas, FFTData data, Rect rect) {
-        // Do nothing, we only display audio data
-    }
-
-    private void cycleColor(){
-        int r = (int) Math.floor(128 * (Math.sin(colorCounter) + 3));
-        int g = (int) Math.floor(128 * (Math.sin(colorCounter) + 1) + 1);
-        int b = (int) Math.floor(128 * (Math.sin(colorCounter + 7) + 1));
-        mPaint.setColor(Color.argb(128, r, g, b));
-        colorCounter += 0.03;
     }
 }

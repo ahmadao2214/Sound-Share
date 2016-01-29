@@ -27,15 +27,12 @@ import java.util.Set;
  */
 public class VisualizerView extends View {
     private static final String TAG = "VisualizerView";
-    boolean mFlash = false;
     Bitmap mCanvasBitmap;
     Canvas mCanvas;
     private byte[] mBytes;
-    private byte[] mFFTBytes;
     private Rect mRect = new Rect();
     private Visualizer mVisualizer;
     private Set<Renderer> mRenderers;
-    private Paint mFlashPaint = new Paint();
 
     public VisualizerView(Context context, AttributeSet attrs, int defStyle){
         super(context, attrs);
@@ -43,15 +40,10 @@ public class VisualizerView extends View {
     }
 
     public VisualizerView(Context context, AttributeSet attrs){ this(context, attrs, 0); }
-
     public VisualizerView(Context context){ this(context, null, 0);}
 
     private void init(){
         mBytes = null;
-        mFFTBytes = null;
-
-        mFlashPaint.setColor(Color.argb(122,255,255,255));
-
         mRenderers = new HashSet<Renderer>();
     }
 
@@ -78,7 +70,7 @@ public class VisualizerView extends View {
 
             @Override
             public void onFftDataCapture(Visualizer visualizer, byte[] bytes, int samplingRate) {
-                updateVisualizerFFT(bytes);
+                //updateVisualizerFFT(bytes);
             }
         };
 
@@ -113,27 +105,6 @@ public class VisualizerView extends View {
         invalidate();
     }
 
-    /**
-     * Pass FFT data to the visualizer. Typically this will be obtained from the
-     * Android Visualizer.OnDataCaptureListener call back. See
-     * {@link Visualizer.OnDataCaptureListener#onFftDataCapture }
-     *
-     * @param bytes
-     */
-    public void updateVisualizerFFT(byte[] bytes){
-        mFFTBytes = bytes;
-        invalidate();
-    }
-
-    /**
-     * Call this to make the visualizer flash. Useful for flashing at the start
-     * of a song/loop etc..
-     */
-    public void flash(){
-        mFlash = true;
-        invalidate();
-    }
-
     @Override
     protected void onDraw(Canvas canvas){
         super.onDraw(canvas);
@@ -147,7 +118,6 @@ public class VisualizerView extends View {
         if(mCanvas == null){
             mCanvas = new Canvas(mCanvasBitmap);
         }
-
         mCanvas.drawColor(Color.TRANSPARENT, Mode.CLEAR);
 
         if(mBytes != null){
@@ -156,17 +126,6 @@ public class VisualizerView extends View {
             for(Renderer r : mRenderers){
                 r.render(mCanvas, audioData, mRect);
             }
-        }
-        if(mFFTBytes != null){
-            // Render all FFT renderers
-            FFTData fftData = new FFTData(mFFTBytes);
-            for( Renderer r : mRenderers){
-                r.render(mCanvas, fftData, mRect);
-            }
-        }
-        if(mFlash){
-            mFlash = false;
-            mCanvas.drawPaint(mFlashPaint);
         }
         canvas.drawBitmap(mCanvasBitmap, new Matrix(), null);
     }

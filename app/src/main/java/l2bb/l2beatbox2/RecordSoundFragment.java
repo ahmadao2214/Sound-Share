@@ -18,7 +18,6 @@ import java.io.IOException;
  */
 public class RecordSoundFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
-
     VisualizerView mVisualizerView;
     Button start;
     Button stop;
