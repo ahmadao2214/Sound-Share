@@ -105,6 +105,9 @@ public class RecordSoundFragment extends Fragment {
 
         BeatDatabase bd = BeatDatabase.getInstance(null);
         bd.insertData(fileName, path);
+
+        SelectSoundFragment f = (SelectSoundFragment)getActivity().getSupportFragmentManager().findFragmentById(R.layout.fragment_select_sound);
+        f.beatAdapter.notifyDataSetChanged();
     }
 
     private void playRecording(View v){

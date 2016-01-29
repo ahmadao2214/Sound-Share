@@ -30,6 +30,8 @@ public class SelectSoundFragment extends ListFragment {
     BeatDatabase bd = BeatDatabase.getInstance(null);
     SwipeRefreshLayout mySwipeRefreshLayout;
 
+    public static BeatAdapter beatAdapter;
+
     public SelectSoundFragment()
     {
 
@@ -46,7 +48,10 @@ public class SelectSoundFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View rootView = inflater.inflate(R.layout.fragment_select_sound, container, false);
-        setListAdapter(new BeatAdapter());
+
+        beatAdapter = new BeatAdapter();
+        setListAdapter(beatAdapter);
+
         mySwipeRefreshLayout = (SwipeRefreshLayout)rootView.findViewById(R.id.swiperefresh);
         mp = new MediaPlayer();
         mVisualizerView = (VisualizerView) rootView.findViewById(R.id.visualizerView);
@@ -65,45 +70,12 @@ public class SelectSoundFragment extends ListFragment {
     }
 
     private void myUpdateOperation(){
-
+        //noinspection ResourceType
+        SelectSoundFragment f = (SelectSoundFragment)getActivity().getSupportFragmentManager().findFragmentById(R.layout.fragment_select_sound);
+        f.beatAdapter.notifyDataSetChanged();
     }
 
-    class BeatAdapter extends BaseAdapter {
-        private LayoutInflater inflater;
-        BeatDatabase bd = BeatDatabase.getInstance(null);
 
-        @Override
-        public int getCount() {
-            return bd.getCount();
-        }
-
-        @Override
-        public Object getItem(int i) {
-            return bd.getBeat(i);
-        }
-
-        @Override
-        public long getItemId(int i) {
-            return i;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            View row = convertView;
-            if (convertView == null) {
-                if (inflater == null)
-                    inflater = (LayoutInflater) SelectSoundFragment.this.getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                row = inflater.inflate(R.layout.beat_list, parent, false);
-            }
-
-            if (bd.getCount() > 0) {
-                TextView name = (TextView) row.findViewById(R.id.text1);
-                Beat beat = bd.getBeat(position + 1);
-                name.setText(beat.getName());
-            }
-            return row;
-        }
-    }
 
     private void addLineRenderer(){
         LineRenderer lineRenderer = new LineRenderer(setupPaint());
