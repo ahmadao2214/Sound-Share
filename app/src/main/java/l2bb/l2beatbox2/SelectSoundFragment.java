@@ -18,13 +18,12 @@ import java.io.IOException;
 
 public class SelectSoundFragment extends ListFragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
+    public static BeatAdapter beatAdapter;
 
     VisualizerView mVisualizerView;
-    MediaPlayer mp;
+    MediaPlayer mPlayer;
     BeatDatabase bd = BeatDatabase.getInstance(null);
     SwipeRefreshLayout mySwipeRefreshLayout;
-
-    public static BeatAdapter beatAdapter;
 
     public SelectSoundFragment()
     {
@@ -42,15 +41,10 @@ public class SelectSoundFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View rootView = inflater.inflate(R.layout.fragment_select_sound, container, false);
-
+        mySwipeRefreshLayout = (SwipeRefreshLayout)rootView.findViewById(R.id.swiperefresh);
         beatAdapter = new BeatAdapter();
         setListAdapter(beatAdapter);
-
-        mySwipeRefreshLayout = (SwipeRefreshLayout)rootView.findViewById(R.id.swiperefresh);
-        mp = new MediaPlayer();
-        mVisualizerView = (VisualizerView) rootView.findViewById(R.id.visualizerView);
-        addLineRenderer();
-        mVisualizerView.link(mp);
+        setupVisualizer(rootView);
 
         mySwipeRefreshLayout.setOnRefreshListener(
                 new SwipeRefreshLayout.OnRefreshListener() {
@@ -66,6 +60,13 @@ public class SelectSoundFragment extends ListFragment {
     private void myUpdateOperation(){
         SelectSoundFragment selectSoundFragment = (SelectSoundFragment)getActivity().getSupportFragmentManager().findFragmentById(R.layout.fragment_select_sound);
         selectSoundFragment.beatAdapter.notifyDataSetChanged();
+    }
+
+    private void setupVisualizer(View rootView){
+        mPlayer = new MediaPlayer();
+        mVisualizerView = (VisualizerView) rootView.findViewById(R.id.visualizerView);
+        addLineRenderer();
+        mVisualizerView.link(mPlayer);
     }
 
     private void addLineRenderer(){
@@ -88,15 +89,15 @@ public class SelectSoundFragment extends ListFragment {
 
     private void playRecording(View v, String path) {
         try {
-            mp.setDataSource(path);
-            mp.prepare();
-            mp.start();
+            mPlayer.setDataSource(path);
+            mPlayer.prepare();
+            mPlayer.start();
         } catch(IOException e){
             e.printStackTrace();
         }
-        mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener(){
+        mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
-            public void onCompletion(MediaPlayer mp){
+            public void onCompletion(MediaPlayer mp) {
                 mp.stop();
                 mp.reset();
                 mVisualizerView.setEnabled(false);

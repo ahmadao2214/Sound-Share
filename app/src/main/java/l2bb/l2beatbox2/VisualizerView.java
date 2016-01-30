@@ -36,18 +36,15 @@ public class VisualizerView extends View {
         super(context, attrs);
         init();
     }
-
     public VisualizerView(Context context, AttributeSet attrs){ this(context, attrs, 0); }
     public VisualizerView(Context context){ this(context, null, 0);}
-
     private void init(){
         mBytes = null;
         mRenderers = new HashSet<Renderer>();
     }
 
     /**
-     * Links the visualizer to a player
-     *
+     * Links visualizer to player
      * @param player - MediaPlayer instance to link to
      */
     public void link(MediaPlayer player){

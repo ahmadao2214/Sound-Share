@@ -37,12 +37,15 @@ public class BeatAdapter extends BaseAdapter {
                 inflater = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = inflater.inflate(R.layout.beat_list, parent, false);
         }
+        setName(position, row);
+        return row;
+    }
 
+    public void setName(int position, View v){
         if (bd.getCount() > 0) {
-            TextView name = (TextView) row.findViewById(R.id.text1);
+            TextView name = (TextView) v.findViewById(R.id.text1);
             Beat beat = bd.getBeat(position + 1);
             name.setText(beat.getName());
         }
-        return row;
     }
 }

@@ -57,15 +57,15 @@ public class BeatDatabase extends SQLiteOpenHelper {
         String countQuery = "SELECT  * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
-        int cnt = cursor.getCount();
+        int count = cursor.getCount();
         cursor.close();
 
-        return cnt;
+        return count;
     }
 
     public Beat getBeat(int id) {
         // Define a projection that specifies which columns from the database
-        // you will actually use after this query.
+        // used after query.
         String[] projection = {
                 BeatDatabase.COL_1,
                 BeatDatabase.COL_2,
@@ -74,10 +74,8 @@ public class BeatDatabase extends SQLiteOpenHelper {
 
         // How you want the results sorted in the resulting Cursor
         String sortOrder = BeatDatabase.COL_1 + " ASC";
-
         String whereClause = BeatDatabase.COL_1 + "=?";
         String[] whereArgs = {String.valueOf(id)};
-
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.query(

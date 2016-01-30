@@ -20,8 +20,8 @@ public class RecordSoundFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
     VisualizerView mVisualizerView;
     Button start, stop, play;
-    MediaRecorder mr;
-    MediaPlayer mp;
+    MediaRecorder mRecorder;
+    MediaPlayer mPlayer;
     String fileName, path;
 
     public RecordSoundFragment(){
@@ -33,7 +33,6 @@ public class RecordSoundFragment extends Fragment {
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
-
         return fragment;
     }
 
@@ -42,24 +41,20 @@ public class RecordSoundFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_record_sound, container, false);
         setupButtons(rootView);
         setupButtonOnClicks();
-
         newMediaRecorder();
 
         path = (getNextFileName(rootView.getContext()).toString());
-        mr.setOutputFile(path);
-
+        mRecorder.setOutputFile(path);
         try {
-            mr.prepare();
+            mRecorder.prepare();
         } catch(IOException e){
             e.printStackTrace();
         }
-
-        mp = new MediaPlayer();
+        mPlayer = new MediaPlayer();
 
         mVisualizerView = (VisualizerView) rootView.findViewById(R.id.visualizerView);
         addLineRenderer();
-
-        mVisualizerView.link(mp);
+        mVisualizerView.link(mPlayer);
 
         return rootView;
     }
@@ -92,10 +87,10 @@ public class RecordSoundFragment extends Fragment {
     }
 
     private void newMediaRecorder(){
-        mr = new MediaRecorder();
-        mr.setAudioSource(MediaRecorder.AudioSource.MIC);
-        mr.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        mr.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+        mRecorder = new MediaRecorder();
+        mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+        mRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+        mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
     }
 
     private void addLineRenderer(){
@@ -111,17 +106,17 @@ public class RecordSoundFragment extends Fragment {
     }
 
     private void startRecording(View v) {
-        mr.start();
+        mRecorder.start();
 
         start.setEnabled(false);
         stop.setEnabled(true);
     }
 
     private void stopRecording(View v){
-        mr.stop();
-        mr.reset();
+        mRecorder.stop();
+        mRecorder.reset();
 
-        mr.release();
+        mRecorder.release();
 
         stop.setEnabled(false);
         play.setEnabled(true);
@@ -139,19 +134,19 @@ public class RecordSoundFragment extends Fragment {
 
     private void playRecording(View v){
         try {
-            mp.setDataSource(path);
-            mp.prepare();
+            mPlayer.setDataSource(path);
+            mPlayer.prepare();
         } catch(IOException e){
             e.printStackTrace();
         }
 
         play.setEnabled(false);
-        mp.start();
-        mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+        mPlayer.start();
+        mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
-            public void onCompletion(MediaPlayer mp) {
-                mp.stop();
-                mp.reset();
+            public void onCompletion(MediaPlayer mPlayer) {
+                mPlayer.stop();
+                mPlayer.reset();
                 play.setEnabled(true);
                 mVisualizerView.setEnabled(false);
             }
