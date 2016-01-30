@@ -19,13 +19,10 @@ import java.io.IOException;
 public class RecordSoundFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
     VisualizerView mVisualizerView;
-    Button start;
-    Button stop;
-    Button play;
+    Button start, stop, play;
     MediaRecorder mr;
     MediaPlayer mp;
-    String fileName;
-    String path;
+    String fileName, path;
 
     public RecordSoundFragment(){
 
@@ -43,28 +40,8 @@ public class RecordSoundFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View rootView = inflater.inflate(R.layout.fragment_record_sound, container, false);
-        start = (Button) rootView.findViewById(R.id.button);
-        stop = (Button) rootView.findViewById(R.id.button2);
-        play = (Button) rootView.findViewById(R.id.button3);
-
-        start.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                startRecording(v);
-            }
-        });
-        stop.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                stopRecording(v);
-            }
-        });
-        play.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                playRecording(v);
-            }
-        });
+        setupButtons(rootView);
+        setupButtonOnClicks();
 
         newMediaRecorder();
 
@@ -87,7 +64,53 @@ public class RecordSoundFragment extends Fragment {
         return rootView;
     }
 
-    public void startRecording(View v) {
+    private void setupButtons(View rootView){
+        start = (Button) rootView.findViewById(R.id.button);
+        stop = (Button) rootView.findViewById(R.id.button2);
+        play = (Button) rootView.findViewById(R.id.button3);
+    }
+
+    private void setupButtonOnClicks(){
+        start.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startRecording(v);
+            }
+        });
+        stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stopRecording(v);
+            }
+        });
+        play.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playRecording(v);
+            }
+        });
+    }
+
+    private void newMediaRecorder(){
+        mr = new MediaRecorder();
+        mr.setAudioSource(MediaRecorder.AudioSource.MIC);
+        mr.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+        mr.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+    }
+
+    private void addLineRenderer(){
+        LineRenderer lineRenderer = new LineRenderer(setupPaint());
+        mVisualizerView.addRenderer(lineRenderer);
+    }
+    private Paint setupPaint(){
+        Paint linePaint =  new Paint();
+        linePaint.setStrokeWidth(7f);
+        linePaint.setAntiAlias(true);
+        linePaint.setColor(getResources().getColor(R.color.colorPrimary));
+        return linePaint;
+    }
+
+    private void startRecording(View v) {
         mr.start();
 
         start.setEnabled(false);
@@ -103,11 +126,15 @@ public class RecordSoundFragment extends Fragment {
         stop.setEnabled(false);
         play.setEnabled(true);
 
+        updateSelectSoundFragment();
+    }
+
+    private void updateSelectSoundFragment(){
         BeatDatabase bd = BeatDatabase.getInstance(null);
         bd.insertData(fileName, path);
 
-        SelectSoundFragment f = (SelectSoundFragment)getActivity().getSupportFragmentManager().findFragmentById(R.layout.fragment_select_sound);
-        f.beatAdapter.notifyDataSetChanged();
+        SelectSoundFragment selectSoundFragment = (SelectSoundFragment)getActivity().getSupportFragmentManager().findFragmentById(R.layout.fragment_select_sound);
+        selectSoundFragment.beatAdapter.notifyDataSetChanged();
     }
 
     private void playRecording(View v){
@@ -120,9 +147,9 @@ public class RecordSoundFragment extends Fragment {
 
         play.setEnabled(false);
         mp.start();
-        mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener(){
+        mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
-            public void onCompletion(MediaPlayer mp){
+            public void onCompletion(MediaPlayer mp) {
                 mp.stop();
                 mp.reset();
                 play.setEnabled(true);
@@ -131,28 +158,9 @@ public class RecordSoundFragment extends Fragment {
         });
     }
 
-    private void newMediaRecorder(){
-        mr = new MediaRecorder();
-        mr.setAudioSource(MediaRecorder.AudioSource.MIC);
-        mr.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        mr.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-    }
-
     private File getNextFileName(Context c){
         fileName = "Audio_" + System.currentTimeMillis() + ".3gp";
         File file = new File(c.getFilesDir(), fileName);
         return file;
-    }
-
-    private void addLineRenderer(){
-        LineRenderer lineRenderer = new LineRenderer(setupPaint());
-        mVisualizerView.addRenderer(lineRenderer);
-    }
-    private Paint setupPaint(){
-        Paint linePaint =  new Paint();
-        linePaint.setStrokeWidth(7f);
-        linePaint.setAntiAlias(true);
-        linePaint.setColor(getResources().getColor(R.color.colorPrimary));
-        return linePaint;
     }
 }

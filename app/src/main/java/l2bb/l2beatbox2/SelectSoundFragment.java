@@ -64,9 +64,8 @@ public class SelectSoundFragment extends ListFragment {
     }
 
     private void myUpdateOperation(){
-        //noinspection ResourceType
-        SelectSoundFragment f = (SelectSoundFragment)getActivity().getSupportFragmentManager().findFragmentById(R.layout.fragment_select_sound);
-        f.beatAdapter.notifyDataSetChanged();
+        SelectSoundFragment selectSoundFragment = (SelectSoundFragment)getActivity().getSupportFragmentManager().findFragmentById(R.layout.fragment_select_sound);
+        selectSoundFragment.beatAdapter.notifyDataSetChanged();
     }
 
     private void addLineRenderer(){
