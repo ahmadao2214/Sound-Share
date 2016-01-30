@@ -24,7 +24,6 @@ import java.util.Set;
  * {@link Visualizer.OnDataCaptureListener#onFftDataCapture }
  */
 public class VisualizerView extends View {
-    private static final String TAG = "VisualizerView";
     Bitmap mCanvasBitmap;
     Canvas mCanvas;
     private byte[] mBytes;

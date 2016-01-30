@@ -12,14 +12,9 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import java.io.IOException;
 
-/**
- * Created by OZ on 12/24/2015.
- */
-
 public class SelectSoundFragment extends ListFragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
     public static BeatAdapter beatAdapter;
-
     VisualizerView mVisualizerView;
     MediaPlayer mPlayer;
     BeatDatabase bd = BeatDatabase.getInstance(null);

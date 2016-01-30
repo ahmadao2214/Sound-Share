@@ -6,18 +6,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-/**
- * Created by OZ on 1/2/2016.
- */
-
 public class BeatDatabase extends SQLiteOpenHelper {
-
-    private static BeatDatabase instance = null;
-
     public static final String DATABASE_NAME = "Beats.db";
     public static final String TABLE_NAME = "Beat_table";
     public static final String COL_1 = "ID", COL_2 = "NAME", COL_3 = "PATH";
 
+    private static BeatDatabase instance = null;
     private BeatDatabase(Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
@@ -42,14 +36,12 @@ public class BeatDatabase extends SQLiteOpenHelper {
 
     public boolean insertData(String name, String path){
         SQLiteDatabase db = this.getWritableDatabase();
-
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, name);
         contentValues.put(COL_3, path);
 
         long result = db.insert(TABLE_NAME, null, contentValues);
-
-        return (result != -1);//
+        return (result != -1);
     }
 
     public int getCount()
@@ -59,7 +51,6 @@ public class BeatDatabase extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(countQuery, null);
         int count = cursor.getCount();
         cursor.close();
-
         return count;
     }
 
@@ -67,9 +58,7 @@ public class BeatDatabase extends SQLiteOpenHelper {
         // Define a projection that specifies which columns from the database
         // used after query.
         String[] projection = {
-                BeatDatabase.COL_1,
-                BeatDatabase.COL_2,
-                BeatDatabase.COL_3
+                BeatDatabase.COL_1, BeatDatabase.COL_2, BeatDatabase.COL_3
         };
 
         // How you want the results sorted in the resulting Cursor

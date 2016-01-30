@@ -2,9 +2,7 @@ package l2bb.l2beatbox2;
 
 import android.graphics.Canvas;
 import android.graphics.Rect;
-/**
- * Created by OZ on 12/28/2015.
- */
+
 abstract public class Renderer {
     protected  float[] mPoints;
 
@@ -18,7 +16,6 @@ abstract public class Renderer {
      * @param rect   - Rect to render into
      */
     abstract public void onRender(Canvas canvas, AudioData data, Rect rect);
-
     final public void render(Canvas canvas, AudioData data, Rect rect){
         if(mPoints == null || mPoints.length < data.bytes.length * 4){
             mPoints = new float[data.bytes.length * 4];

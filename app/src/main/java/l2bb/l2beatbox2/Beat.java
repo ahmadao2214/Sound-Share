@@ -1,8 +1,5 @@
 package l2bb.l2beatbox2;
 
-/**
- * Created by OZ on 12/28/2015.
- */
 public class Beat {
     private String name, path;
 

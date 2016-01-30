@@ -13,9 +13,6 @@ import android.widget.Button;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * Created by OZ on 12/28/2015.
- */
 public class RecordSoundFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
     VisualizerView mVisualizerView;
@@ -50,12 +47,7 @@ public class RecordSoundFragment extends Fragment {
         } catch(IOException e){
             e.printStackTrace();
         }
-        mPlayer = new MediaPlayer();
-
-        mVisualizerView = (VisualizerView) rootView.findViewById(R.id.visualizerView);
-        addLineRenderer();
-        mVisualizerView.link(mPlayer);
-
+        setupVisualizer(rootView);
         return rootView;
     }
 
@@ -105,6 +97,13 @@ public class RecordSoundFragment extends Fragment {
         return linePaint;
     }
 
+    private void setupVisualizer(View rootView){
+        mPlayer = new MediaPlayer();
+        mVisualizerView = (VisualizerView) rootView.findViewById(R.id.visualizerView);
+        addLineRenderer();
+        mVisualizerView.link(mPlayer);
+    }
+
     private void startRecording(View v) {
         mRecorder.start();
 
@@ -115,7 +114,6 @@ public class RecordSoundFragment extends Fragment {
     private void stopRecording(View v){
         mRecorder.stop();
         mRecorder.reset();
-
         mRecorder.release();
 
         stop.setEnabled(false);
@@ -127,7 +125,6 @@ public class RecordSoundFragment extends Fragment {
     private void updateSelectSoundFragment(){
         BeatDatabase bd = BeatDatabase.getInstance(null);
         bd.insertData(fileName, path);
-
         SelectSoundFragment selectSoundFragment = (SelectSoundFragment)getActivity().getSupportFragmentManager().findFragmentById(R.layout.fragment_select_sound);
         selectSoundFragment.beatAdapter.notifyDataSetChanged();
     }

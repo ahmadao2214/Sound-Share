@@ -4,9 +4,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
-/**
- * Created by OZ on 12/28/2015.
- */
 public class LineRenderer extends Renderer {
     private Paint mPaint;
 

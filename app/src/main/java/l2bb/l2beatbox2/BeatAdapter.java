@@ -7,9 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-/**
- * Created by OZ on 1/28/2016.
- */
 public class BeatAdapter extends BaseAdapter {
     private LayoutInflater inflater;
     BeatDatabase bd = BeatDatabase.getInstance(null);
@@ -18,17 +15,14 @@ public class BeatAdapter extends BaseAdapter {
     public int getCount() {
         return bd.getCount();
     }
-
     @Override
     public Object getItem(int i) {
         return bd.getBeat(i);
     }
-
     @Override
     public long getItemId(int i) {
         return i;
     }
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
