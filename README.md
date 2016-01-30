@@ -21,9 +21,6 @@ Provides container for audio byte [].
 •	Beat:
 Object representing list to hold description and sound file.
 
-•	FFTData:
-Provides container for FFT byte [].
-
 •	LineRenderer:
 Render audio data for visualizer.
 
@@ -43,34 +40,32 @@ Scroll through multiple fragments
 Sound selection scrollable list. Tap a sound to play audio and see the visualizer
 
 •	VisualizerView:
-Element to visualize FFT data.
+Element to visualize audio data.
 
 ```
 
 
 ###CHALLENGES:
 ```sh
-•	Configuring the media player after starting and playing to allow users to play multiple sounds.
+•	Configuring media player allow users to play multiple sounds.
 
-•	Finding a visualizer library.
+• Updating SelectSoundFragment List after recording.
 
-•	Finding a acoustic fingerprinting library (still a work in progress).
+•	Finding visualizer and acoustic fingerprinting library.
 
-•	Inflating list view with visualizer in SelectSoundFragment. 
+•	Inflating list in SelectSoundFragment. 
 
-•	Incompatibility between fragments/activities.
-
-•	Changing RecordSoundFragment to add to SelectSoundFragment list.
+•	Modify RecordSoundFragment to append to SelectSoundFragment list.
 ```
 
 
 ###Improvements:
 ```sh
-•	Record your own beatbox sound and add to list
+•	Record your own beatbox sound and add to list (Check)
 
-•	Create a backend to host audio files
+•	Create a backend to host audio files (Check)
 
 •	Social Media integration for login and distribution
 
-•	Add collarboration feature
+•	Add collarboration feature (WORKING ON FUNCTIONAL DOC)
 ```
