@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -125,8 +127,11 @@ public class RecordSoundFragment extends Fragment {
     private void updateSelectSoundFragment(){
         BeatDatabase bd = BeatDatabase.getInstance(null);
         bd.insertData(fileName, path);
+
         SelectSoundFragment selectSoundFragment = (SelectSoundFragment)getActivity().getSupportFragmentManager().findFragmentById(R.layout.fragment_select_sound);
         selectSoundFragment.beatAdapter.notifyDataSetChanged();
+
+        Toast.makeText(getActivity().getApplicationContext(), "DB updated", Toast.LENGTH_LONG);
     }
 
     private void playRecording(View v){
