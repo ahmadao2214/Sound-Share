@@ -13,8 +13,7 @@ Audio Analysis Library:
 Acoustic finger printing library for implementation and analysis.
 
 
-###CLASSES:
-```sh
+###Classes:
 * AudioData:
 Provides container for audio byte [].
 
@@ -42,11 +41,9 @@ Sound selection scrollable list. Tap a sound to play audio and see the visualize
 * VisualizerView:
 Element to visualize audio data.
 
-```
 
 
-###CHALLENGES:
-```sh
+###Challenges:
 * Configuring media player allow users to play multiple sounds.
 
 * Updating SelectSoundFragment List after recording.
@@ -56,11 +53,9 @@ Element to visualize audio data.
 * Inflating list in SelectSoundFragment. 
 
 * Modify RecordSoundFragment to append to SelectSoundFragment list.
-```
 
 
 ###Improvements:
-```sh
 * Record your own beatbox sound and add to list (Check)
 
 * Create a backend to host audio files (Check)
@@ -68,4 +63,3 @@ Element to visualize audio data.
 * Social Media integration for login and distribution
 
 * Add collarboration feature (WORKING ON FUNCTIONAL DOC)
-```
