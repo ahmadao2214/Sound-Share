@@ -15,13 +15,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by OZ on 12/27/2015.
- */
-
-/**
  * A class that draws visualizations of data received from a
- * {@link Visualizer.OnDataCaptureListener#onWaveFormDataCapture } and
- * {@link Visualizer.OnDataCaptureListener#onFftDataCapture }
+ * {@link Visualizer.OnDataCaptureListener#onWaveFormDataCapture }
  */
 public class VisualizerView extends View {
     Bitmap mCanvasBitmap;
@@ -83,7 +78,6 @@ public class VisualizerView extends View {
      * Pass data to visualizer. Typically this will be obtained from the
      * Android Visualizer.OnDataCaptureListener call back. See
      * {@link Visualizer.OnDataCaptureListener#onWaveFormDataCapture }
-     *
      * @param bytes
      */
     public void updateVisualizer(byte[] bytes){

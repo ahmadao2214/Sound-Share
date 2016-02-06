@@ -65,7 +65,6 @@ public class BeatDatabase extends SQLiteOpenHelper {
         String sortOrder = BeatDatabase.COL_1 + " ASC";
         String whereClause = BeatDatabase.COL_1 + "=?";
         String[] whereArgs = {String.valueOf(id)};
-
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.query(
                 BeatDatabase.TABLE_NAME,                  // The table to query
@@ -76,7 +75,6 @@ public class BeatDatabase extends SQLiteOpenHelper {
                 null,                                     // don't filter by row groups
                 sortOrder                                 // The sort order
         );
-
         c.moveToFirst();
         return new Beat(c.getString(1), c.getString(2));
     }
