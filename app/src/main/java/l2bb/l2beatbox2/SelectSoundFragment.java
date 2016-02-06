@@ -18,7 +18,6 @@ public class SelectSoundFragment extends ListFragment {
     VisualizerView mVisualizerView;
     MediaPlayer mPlayer;
     BeatDatabase bd = BeatDatabase.getInstance(null);
-    SwipeRefreshLayout mySwipeRefreshLayout;
 
     public SelectSoundFragment()
     {
@@ -36,10 +35,11 @@ public class SelectSoundFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View rootView = inflater.inflate(R.layout.fragment_select_sound, container, false);
-        mySwipeRefreshLayout = (SwipeRefreshLayout)rootView.findViewById(R.id.swiperefresh);
+
         beatAdapter = new BeatAdapter();
         setListAdapter(beatAdapter);
         setupVisualizer(rootView);
+<<<<<<< HEAD
         mySwipeRefreshLayout.setOnRefreshListener(
                 new SwipeRefreshLayout.OnRefreshListener() {
                     @Override
@@ -48,6 +48,9 @@ public class SelectSoundFragment extends ListFragment {
                     }
                 }
         );
+=======
+
+>>>>>>> 26cb5bd2969d78bc8df9a3dd3ef8232594d8fa18
         return rootView;
     }
 
@@ -78,7 +81,7 @@ public class SelectSoundFragment extends ListFragment {
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id){
-        playRecording(v, bd.getBeat(position).getPath());
+        playRecording(v, bd.getBeat(position + 1).getPath());
     }
 
     private void playRecording(View v, String path) {

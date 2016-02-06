@@ -13,59 +13,53 @@ Audio Analysis Library:
 Acoustic finger printing library for implementation and analysis.
 
 
-###CLASSES:
-```sh
-•	AudioData:
+###Classes:
+* AudioData:
 Provides container for audio byte [].
 
-•	Beat:
+* Beat:
 Object representing list to hold description and sound file.
 
-•	LineRenderer:
+* LineRenderer:
 Render audio data for visualizer.
 
-•	MainActivity:
+* MainActivity:
 Creates SectionsPagerAdapter
 
-•	RecordSoundFragment:
+* RecordSoundFragment:
 Play, stop and record while displaying visualizer.
 
-•	Renderer:
+* Renderer:
 Canvas rendering for LineRenderer.
 
-•	SectionsPagerAdapter:
+* SectionsPagerAdapter:
 Scroll through multiple fragments
 
-•	SelectSoundFragment:
+* SelectSoundFragment:
 Sound selection scrollable list. Tap a sound to play audio and see the visualizer
 
-•	VisualizerView:
+* VisualizerView:
 Element to visualize audio data.
 
-```
 
 
-###CHALLENGES:
-```sh
-•	Configuring media player allow users to play multiple sounds.
+###Challenges:
+* Configuring media player allow users to play multiple sounds.
 
-• Updating SelectSoundFragment List after recording.
+* Updating SelectSoundFragment List after recording.
 
-•	Finding visualizer and acoustic fingerprinting library.
+* Finding visualizer and acoustic fingerprinting library.
 
-•	Inflating list in SelectSoundFragment. 
+* Inflating list in SelectSoundFragment. 
 
-•	Modify RecordSoundFragment to append to SelectSoundFragment list.
-```
+* Modify RecordSoundFragment to append to SelectSoundFragment list.
 
 
 ###Improvements:
-```sh
-•	Record your own beatbox sound and add to list (Check)
+* Record your own beatbox sound and add to list (Check)
 
-•	Create a backend to host audio files (Check)
+* Create a backend to host audio files (Check)
 
-•	Social Media integration for login and distribution
+* Social Media integration for login and distribution
 
-•	Add collarboration feature (WORKING ON FUNCTIONAL DOC)
-```
+* Add collarboration feature (WORKING ON FUNCTIONAL DOC)
