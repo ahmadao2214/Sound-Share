@@ -39,24 +39,7 @@ public class SelectSoundFragment extends ListFragment {
         beatAdapter = new BeatAdapter();
         setListAdapter(beatAdapter);
         setupVisualizer(rootView);
-<<<<<<< HEAD
-        mySwipeRefreshLayout.setOnRefreshListener(
-                new SwipeRefreshLayout.OnRefreshListener() {
-                    @Override
-                    public void onRefresh() {
-                        myUpdateOperation();
-                    }
-                }
-        );
-=======
-
->>>>>>> 26cb5bd2969d78bc8df9a3dd3ef8232594d8fa18
         return rootView;
-    }
-
-    private void myUpdateOperation(){
-        SelectSoundFragment selectSoundFragment = (SelectSoundFragment)getActivity().getSupportFragmentManager().findFragmentById(R.layout.fragment_select_sound);
-        selectSoundFragment.beatAdapter.notifyDataSetChanged();
     }
 
     private void setupVisualizer(View rootView){
