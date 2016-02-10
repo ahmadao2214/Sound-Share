@@ -130,7 +130,7 @@ public class RecordSoundFragment extends Fragment {
         SelectSoundFragment selectSoundFragment = (SelectSoundFragment)getActivity().getSupportFragmentManager().findFragmentById(R.layout.fragment_select_sound);
         selectSoundFragment.beatAdapter.notifyDataSetChanged();
 
-        Toast.makeText(getActivity().getApplicationContext(), "DB updated", Toast.LENGTH_LONG);
+        Toast.makeText(getActivity().getApplicationContext(), "DB updated", Toast.LENGTH_LONG).show();
     }
 
     private void playRecording(View v){
