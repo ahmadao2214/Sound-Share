@@ -11,9 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
-
 import java.io.File;
 import java.io.IOException;
+import com.facebook.FacebookSdk;
 
 public class RecordSoundFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
@@ -50,6 +50,7 @@ public class RecordSoundFragment extends Fragment {
             e.printStackTrace();
         }
         setupVisualizer(rootView);
+
         return rootView;
     }
 
