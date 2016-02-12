@@ -1,29 +1,27 @@
 package l2bb.l2beatbox2;
 
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Base64;
-import android.util.Log;
-import com.facebook.FacebookSdk;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookSdk;
 
 public class MainActivity extends AppCompatActivity {
     public static final String SOCIAL_NETWORK_TAG = "SocialIntegrationMain.SOCIAL_NETWORK_TAG";
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
+
     private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+
         setContentView(R.layout.activity_main);
         BeatDatabase.getInstance(getApplicationContext());
         // Create adapter that will return a fragment for each primary section of activity.
@@ -32,15 +30,7 @@ public class MainActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new RecordSoundFragment())
-                    .commit();
-        }
 
-        //mSocialNetworkManager = (SocialNetworkManager) getFragmentManager().findFragmentByTag(MainActivity.SOCIAL_NETWORK_TAG);
-
-        printHashKey();
     }
 
     @Override
@@ -49,19 +39,6 @@ public class MainActivity extends AppCompatActivity {
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(SOCIAL_NETWORK_TAG);
         if (fragment != null) {
             fragment.onActivityResult(requestCode, resultCode, data);
-        }
-    }
-
-    public void printHashKey() {
-        try {
-            PackageInfo info = getApplicationContext().getPackageManager().getPackageInfo("l2bb.l2beatbox2",PackageManager.GET_SIGNATURES);
-            for (Signature signature : info.signatures) {
-                MessageDigest md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                Log.d("HASH KEY:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
-            }
-        } catch (PackageManager.NameNotFoundException e) {
-        } catch (NoSuchAlgorithmException e) {
         }
     }
 }

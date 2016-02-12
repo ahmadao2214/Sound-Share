@@ -13,15 +13,17 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position){
         switch(position){
             case 0:
-                return RecordSoundFragment.newInstance(0);
+                return LoginFragment.newInstance(0);
             case 1:
-                return SelectSoundFragment.newInstance(1);
+                return RecordSoundFragment.newInstance(1);
+            case 2:
+                return SelectSoundFragment.newInstance(2);
         }
         return null;
     }
 
     @Override
-    public int getCount() { return 2; }
+    public int getCount() { return 3; }
 
     @Override
     public CharSequence getPageTitle(int position){
@@ -30,6 +32,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 return "SECTION 1";
             case 1:
                 return "SECTION 2";
+            case 2:
+                return "SECTION 3";
         }
         return null;
     }

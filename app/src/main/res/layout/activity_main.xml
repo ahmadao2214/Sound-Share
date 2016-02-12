@@ -8,16 +8,6 @@
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Login via Facebook"
-        android:id="@+id/facebook"
-        android:layout_gravity="center_horizontal"
-        android:background="#3b5998"
-        android:layout_margin="8dp"
-        android:textColor="#ffffffff" />
-
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
