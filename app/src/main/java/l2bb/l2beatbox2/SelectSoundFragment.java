@@ -39,6 +39,7 @@ public class SelectSoundFragment extends ListFragment {
         beatAdapter = new BeatAdapter();
         setListAdapter(beatAdapter);
         setupVisualizer(rootView);
+
         return rootView;
     }
 

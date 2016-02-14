@@ -55,8 +55,7 @@ public class BeatDatabase extends SQLiteOpenHelper {
     }
 
     public Beat getBeat(int id) {
-        // Define a projection that specifies which columns from the database
-        // used after query.
+        // Define a projection that specifies which columns from the database used after query.
         String[] projection = {
                 BeatDatabase.COL_1, BeatDatabase.COL_2, BeatDatabase.COL_3
         };

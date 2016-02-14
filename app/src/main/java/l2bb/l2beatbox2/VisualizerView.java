@@ -14,8 +14,7 @@ import android.graphics.Matrix;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * A class that draws visualizations of data received from a
+/** A class that draws visualizations of data received from a
  * {@link Visualizer.OnDataCaptureListener#onWaveFormDataCapture }
  */
 public class VisualizerView extends View {
@@ -37,8 +36,7 @@ public class VisualizerView extends View {
         mRenderers = new HashSet<Renderer>();
     }
 
-    /**
-     * Links visualizer to player
+    /** Links visualizer to player
      * @param player - MediaPlayer instance to link to
      */
     public void link(MediaPlayer player){
@@ -46,7 +44,7 @@ public class VisualizerView extends View {
             throw new NullPointerException("Cannot link to null MediaPlayer");
         }
 
-        // Create the Visualizer object and attach it to our media player.
+        // Attach Visualizer to Media Player
         mVisualizer = new Visualizer(player.getAudioSessionId());
         mVisualizer.setCaptureSize(Visualizer.getCaptureSizeRange()[1]);
 
@@ -58,13 +56,9 @@ public class VisualizerView extends View {
             }
 
             @Override
-            public void onFftDataCapture(Visualizer visualizer, byte[] bytes, int samplingRate) {
-                //updateVisualizerFFT(bytes);
-            }
+            public void onFftDataCapture(Visualizer visualizer, byte[] bytes, int samplingRate) { }
         };
-
         mVisualizer.setDataCaptureListener(captureListener, Visualizer.getMaxCaptureRate() / 2, true, true);
-        // Enabled Visualizer and disable when stream use is done
         mVisualizer.setEnabled(true);
     }
 
@@ -74,8 +68,7 @@ public class VisualizerView extends View {
         }
     }
 
-    /**
-     * Pass data to visualizer. Typically this will be obtained from the
+    /** Pass data to visualizer. Typically this will be obtained from the
      * Android Visualizer.OnDataCaptureListener call back. See
      * {@link Visualizer.OnDataCaptureListener#onWaveFormDataCapture }
      * @param bytes
@@ -88,7 +81,7 @@ public class VisualizerView extends View {
     @Override
     protected void onDraw(Canvas canvas){
         super.onDraw(canvas);
-        // Create canvas when ready to draw
+
         mRect.set(0, 0, getWidth(), getHeight());
 
         if(mCanvasBitmap == null){
@@ -100,7 +93,6 @@ public class VisualizerView extends View {
         mCanvas.drawColor(Color.TRANSPARENT, Mode.CLEAR);
 
         if(mBytes != null){
-            // Render all audio renderers
             AudioData audioData = new AudioData(mBytes);
             for(Renderer r : mRenderers){
                 r.render(mCanvas, audioData, mRect);

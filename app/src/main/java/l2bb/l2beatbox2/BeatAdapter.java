@@ -20,9 +20,7 @@ public class BeatAdapter extends BaseAdapter {
         return bd.getBeat(i);
     }
     @Override
-    public long getItemId(int i) {
-        return i;
-    }
+    public long getItemId(int i) { return i; }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;

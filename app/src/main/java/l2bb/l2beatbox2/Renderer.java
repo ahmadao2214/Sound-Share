@@ -9,8 +9,8 @@ abstract public class Renderer {
     public Renderer(){
 
     }
-    /**
-     * Implement this method to render the audio data onto the canvas
+
+    /** Implement this method to render the audio data onto the canvas
      * @param canvas - Canvas to draw on
      * @param data   - Data to render
      * @param rect   - Rect to render into
