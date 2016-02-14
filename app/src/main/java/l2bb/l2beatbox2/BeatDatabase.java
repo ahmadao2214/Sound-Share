@@ -16,10 +16,19 @@ public class BeatDatabase extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, 1);
     }
 
+    public static BeatDatabase getInstance()
+    {
+        if (instance == null)
+            throw new NullPointerException("Wrong getInstance was called before providing a context.");
+
+        return instance;
+    }
+
     public static BeatDatabase getInstance(Context context)
     {
         if (instance == null)
             instance = new BeatDatabase(context);
+
         return instance;
     }
 

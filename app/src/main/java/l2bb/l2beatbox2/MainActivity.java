@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import com.facebook.FacebookSdk;
+import com.firebase.client.Firebase;
 
 public class MainActivity extends AppCompatActivity {
     public static final String SOCIAL_NETWORK_TAG = "SocialIntegrationMain.SOCIAL_NETWORK_TAG";
@@ -15,10 +16,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         setUpViewPager();
 
         FacebookSdk.sdkInitialize(getApplicationContext());
+
+        OnlineDatabase.getInstance(getApplicationContext()).write();
+
         BeatDatabase.getInstance(getApplicationContext());
     }
 

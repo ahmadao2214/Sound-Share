@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class BeatAdapter extends BaseAdapter {
     private LayoutInflater inflater;
-    BeatDatabase bd = BeatDatabase.getInstance(null);
+    BeatDatabase bd = BeatDatabase.getInstance();
 
     @Override
     public int getCount() {

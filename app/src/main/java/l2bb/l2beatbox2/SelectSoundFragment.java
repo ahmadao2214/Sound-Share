@@ -17,7 +17,7 @@ public class SelectSoundFragment extends ListFragment {
     public static BeatAdapter beatAdapter;
     VisualizerView mVisualizerView;
     MediaPlayer mPlayer;
-    BeatDatabase bd = BeatDatabase.getInstance(null);
+    BeatDatabase bd = BeatDatabase.getInstance();
 
     public SelectSoundFragment()
     {
