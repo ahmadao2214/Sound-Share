@@ -1,6 +1,6 @@
 # L2BEATBOX
 
-(Android) Sampling beat-box techniques and displaying sound frequency from selecting sample or from "Play" button.
+Android app sharing user's beat-box recordings, creating opportunities to collaborate
 
 ###APIS:
 Android Visualizer by FelixPalmer:
@@ -56,10 +56,12 @@ Element to visualize audio data.
 
 
 ###Improvements:
-* Record your own beatbox sound and add to list (Check)
+* Record beatbox sound and add to list (Check)
 
-* Create a backend to host audio files (Check)
+* Hosted Backend
 
-* Social Media integration for login and distribution
+* Social Media integration to login (Check)
 
-* Add collarboration feature (WORKING ON FUNCTIONAL DOC)
+* Distributed System
+
+* Add collab feature (NEED FUNCTIONAL DESIGN)
