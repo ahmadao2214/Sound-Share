@@ -1,4 +1,4 @@
-# L2BEATBOX
+# SOUND SHARE (Formally L2BEATBOX)
 
 Android app sharing user's beat-box recordings, creating opportunities to collaborate
 
@@ -41,6 +41,12 @@ Sound selection scrollable list. Tap a sound to play audio and see the visualize
 * VisualizerView:
 Element to visualize audio data.
 
+*LoginFragment
+Facebook login functionality
+
+*OnlineDatabase
+Firebase API to host database
+
 
 
 ###Challenges:
@@ -58,9 +64,9 @@ Element to visualize audio data.
 ###Improvements:
 * Record beatbox sound and add to list (Check)
 
-* Hosted Backend
-
 * Social Media integration to login (Check)
+
+* Hosted Backend (Started)
 
 * Distributed System
 
