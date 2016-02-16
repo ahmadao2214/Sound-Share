@@ -41,10 +41,10 @@ Sound selection scrollable list. Tap a sound to play audio and see the visualize
 * VisualizerView:
 Element to visualize audio data.
 
-* LoginFragment
+* LoginFragment:
 Facebook login functionality
 
-* OnlineDatabase
+* OnlineDatabase:
 Firebase API to host database
 
 
