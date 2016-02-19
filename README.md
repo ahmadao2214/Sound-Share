@@ -3,14 +3,14 @@
 Android app sharing user's beat-box recordings, creating opportunities to collaborate
 
 ###APIS:
-Android Visualizer by FelixPalmer:
+Android Visualizer:
 > https://github.com/felixpalmer/android-visualizer
-Visualization effect drawing sound frequency.
+Sound Frequency Visualizer.
 
 
 Audio Analysis Library:
 > https://code.google.com/p/musicg/
-Acoustic finger printing library for implementation and analysis.
+Acoustic Finger Printing.
 
 
 ###Classes:
