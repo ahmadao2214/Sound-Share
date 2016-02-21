@@ -12,6 +12,35 @@ Audio Analysis Library:
 > https://code.google.com/p/musicg/
 Acoustic Finger Printing.
 
+###Improvements needed:
+* Record beatbox sound and add to list (Check)
+
+* Social Media integration to login (Check)
+
+* Hosted Backend (Started)
+
+* Distributed System
+
+* Add collab feature (NEED FUNCTIONAL DESIGN)
+
+* Update visualizer live (Needs more research)
+
+* Unit tests
+
+###Challenges:
+* Configuring media player allow users to play multiple sounds.
+
+* Updating SelectSoundFragment List after recording.
+
+* Finding visualizer and acoustic fingerprinting library.
+
+* Inflating list in SelectSoundFragment. 
+
+* Modify RecordSoundFragment to append to SelectSoundFragment list.
+
+* Implemented hosted backend
+
+* Sending a sound through distributed system
 
 ###Classes:
 * AudioData:
@@ -48,26 +77,3 @@ Facebook login functionality
 Firebase API to host database
 
 * SocialMedia: 
-
-###Challenges:
-* Configuring media player allow users to play multiple sounds.
-
-* Updating SelectSoundFragment List after recording.
-
-* Finding visualizer and acoustic fingerprinting library.
-
-* Inflating list in SelectSoundFragment. 
-
-* Modify RecordSoundFragment to append to SelectSoundFragment list.
-
-
-###Improvements:
-* Record beatbox sound and add to list (Check)
-
-* Social Media integration to login (Check)
-
-* Hosted Backend (Started)
-
-* Distributed System
-
-* Add collab feature (NEED FUNCTIONAL DESIGN)
