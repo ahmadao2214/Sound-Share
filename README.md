@@ -13,17 +13,17 @@ Audio Analysis Library:
 Acoustic Finger Printing.
 
 ###Improvements needed:
-* Record beatbox sound and add to list (Check)
+* Record beatbox sound and update list (Check)
 
-* Social Media integration to login (Check)
+* Facebook login (Check)
 
 * Hosted Backend (Started)
 
-* Distributed System
+* Send sound to friend
 
-* Add collab feature (NEED FUNCTIONAL DESIGN)
+* Collaboration feature (NEED FUNCTIONAL DESIGN)
 
-* Update visualizer live (Needs more research)
+* Update visualizer live (Needs research)
 
 * Unit tests
 
