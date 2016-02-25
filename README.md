@@ -1,17 +1,46 @@
-# L2BEATBOX
+# SOUND SHARE (Formally L2BEATBOX)
 
-(Android) Sampling beat-box techniques and displaying sound frequency from selecting sample or from "Play" button.
+Android app sharing user's beat-box recordings, creating opportunities to collaborate
 
 ###APIS:
-Android Visualizer by FelixPalmer:
+Android Visualizer:
 > https://github.com/felixpalmer/android-visualizer
-Visualization effect drawing sound frequency.
+Sound Frequency Visualizer.
 
 
 Audio Analysis Library:
 > https://code.google.com/p/musicg/
-Acoustic finger printing library for implementation and analysis.
+Acoustic Finger Printing.
 
+###Improvements needed:
+* Record beatbox sound and update list (Check)
+
+* Facebook login (Check)
+
+* Hosted Backend (Started)
+
+* Send sound to friend
+
+* Collaboration feature (NEED FUNCTIONAL DESIGN)
+
+* Update visualizer live (Needs research)
+
+* Unit tests
+
+###Challenges:
+* Configuring media player allow users to play multiple sounds.
+
+* Updating SelectSoundFragment List after recording.
+
+* Finding visualizer and acoustic fingerprinting library.
+
+* Inflating list in SelectSoundFragment. 
+
+* Modify RecordSoundFragment to append to SelectSoundFragment list.
+
+* Implemented hosted backend
+
+* Sending a sound through distributed system
 
 ###Classes:
 * AudioData:
@@ -41,25 +70,10 @@ Sound selection scrollable list. Tap a sound to play audio and see the visualize
 * VisualizerView:
 Element to visualize audio data.
 
+* LoginFragment:
+Facebook login functionality
 
+* OnlineDatabase:
+Firebase API to host database
 
-###Challenges:
-* Configuring media player allow users to play multiple sounds.
-
-* Updating SelectSoundFragment List after recording.
-
-* Finding visualizer and acoustic fingerprinting library.
-
-* Inflating list in SelectSoundFragment. 
-
-* Modify RecordSoundFragment to append to SelectSoundFragment list.
-
-
-###Improvements:
-* Record your own beatbox sound and add to list (Check)
-
-* Create a backend to host audio files (Check)
-
-* Social Media integration for login and distribution
-
-* Add collarboration feature (WORKING ON FUNCTIONAL DOC)
+* SocialMedia: 
