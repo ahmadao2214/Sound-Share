@@ -4,9 +4,6 @@ import com.firebase.client.Firebase;
 
 import android.content.Context;
 
-/**
- * Created by augustk on 2/14/2016.
- */
 public class OnlineDatabase {
 
     private static OnlineDatabase instance = null;
