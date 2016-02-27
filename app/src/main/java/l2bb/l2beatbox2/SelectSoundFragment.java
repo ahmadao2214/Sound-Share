@@ -1,11 +1,12 @@
 package l2bb.l2beatbox2;
 
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.ListFragment;
 import android.graphics.Paint;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,6 +67,17 @@ public class SelectSoundFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id){
         playRecording(v, bd.getBeat(position + 1).getPath());
+        final int temp = position;
+        View.OnLongClickListener listener = new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                //getFragmentManager().beginTransaction().replace(R.id.container, new CollabSoundFragment()).commit();
+
+                BeatDatabase bd = BeatDatabase.getInstance();
+                bd.getBeat(temp + 1);
+                return true;
+            }
+        };
     }
 
     private void playRecording(View v, String path) {

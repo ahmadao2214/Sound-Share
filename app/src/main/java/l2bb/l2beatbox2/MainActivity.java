@@ -22,9 +22,9 @@ public class MainActivity extends AppCompatActivity {
 
         FacebookSdk.sdkInitialize(getApplicationContext());
 
+        BeatDatabase.getInstance(getApplicationContext());
         OnlineDatabase.getInstance(getApplicationContext()).write();
 
-        BeatDatabase.getInstance(getApplicationContext());
     }
 
     @Override
