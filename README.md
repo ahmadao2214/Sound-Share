@@ -2,7 +2,7 @@
 
 Android app sharing user's beat-box recordings, creating opportunities to collaborate
 
-###APIS:
+###API:
 Android Visualizer:
 > https://github.com/felixpalmer/android-visualizer
 Sound Frequency Visualizer.
