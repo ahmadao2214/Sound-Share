@@ -1,4 +1,4 @@
-# SOUND SHARE(Formally L2BeatBox)
+# SOUND SHARE (Formally L2BeatBox)
 
 Android app sharing user's beat-box recordings, creating opportunities to collaborate
 
