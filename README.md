@@ -17,7 +17,7 @@ Acoustic Finger Printing.
 
 * Facebook login (Check)
 
-* Hosted Backend (Started)
+* Host Backend (Started)
 
 * Send sound to friend
 
